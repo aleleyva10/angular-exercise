@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular Exercise</title>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body ng-app="myApp">
+  <h1>Angular Exercise</h1>
+  <div ng-controller="AngularEx as ae">
+    <input type="number" ng-model="ae.yearIn" placeholder="Year" />
+    <input type="text" ng-model="ae.makeIn" placeholder="Make" />
+    <input type="text" ng-model="ae.modelIn" placeholder="Model" />
+    <input type="text" ng-model="ae.colorIn" placeholder="Color" />
+    <input type="number" ng-model="ae.costIn" placeholder="Cost" />
+    <button class="add-car" ng-click="ae.addCar()">Add</button>
+    <p ng-repeat="car in ae.cars">
+       {{car.year}} {{car.make}} {{car.model}} {{car.color}} ${{car.cost}} <button class="remove-car" ng-click="ae.removeCar($index)">Remove</button>
+    </p>
+    <h2 ng-show="ae.showFront" ng-click="ae.toggleShow()">Car Front</h2>
+    <h2 ng-hide="ae.showFront" ng-click="ae.toggleShow()">Back View</h2>
+  </div>
+</body>
+
+</html>
